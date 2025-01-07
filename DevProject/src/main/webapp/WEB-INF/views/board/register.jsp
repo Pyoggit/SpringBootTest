@@ -7,6 +7,10 @@
 <title>게시판</title>
 </head>
 <body>
-	<h3>등록</h3>
+	<h3>개시글 등록</h3>
+	<form method="post" action="/board/post">
+		<button type="submit" name="register">등록</button>
+	</form>
+	<a href="/board/get?list">목록</a>
 </body>
 </html>

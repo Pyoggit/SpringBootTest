@@ -7,6 +7,8 @@
 <title>게시판</title>
 </head>
 <body>
-	<h3>수정</h3>
+	<h3>게시글 목록</h3>
+	<a href="/board/get?register">등록</a>
+	<a href="/board/get?read">읽기</a>
 </body>
 </html>
