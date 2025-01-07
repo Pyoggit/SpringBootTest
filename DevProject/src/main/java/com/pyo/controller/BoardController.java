@@ -1,27 +1,56 @@
 package com.pyo.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.pyo.domain.Board;
+import lombok.extern.java.Log;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
-@RestController
+@Log
+@Controller
 @RequestMapping("/board")
 public class BoardController {
+// @RequestMapping의 value 속성에 요청 경로를 설정한다.
+// register 경로에 GET 방식 설정
+	@GetMapping(value = "/register")
+	public String registerForm() {
+		log.info("GET 방식 등록 폼");
+		return "success";
+	}
 
-    @PutMapping(value = "/{boardno}")
-    public ResponseEntity<String> modify(@PathVariable("boardno") int boardno, @RequestBody Board board) {
-        log.info("boardno = " + boardno);
-        log.info("board = " + board.toString());
+// register 경로에 POST 방식 설정
+	@PostMapping(value = "/register")
+	public String register() {
+		log.info("POST 방식 등록");
+		return "success";
+	}
 
-        return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
-    }
+//modify 경로에 GET 방식
+	@GetMapping(value = "/modify")
+	public String modifyForm() {
+		log.info("GET 방식 수정 폼");
+		return "success";
+	}
+
+//modify 경로에 POST 방식
+	@PostMapping(value = "/modify")
+	public String modify() {
+		log.info("POST 방식 수정");
+		return "success";
+	}
+
+//remove 경로에 POST 방식
+	@PostMapping(value = "/remove")
+	public String remove() {
+		log.info("POST 방식 삭제");
+		return "success";
+	}
+
+//list 경로에 GET 방식
+	@GetMapping(value = "/list")
+	public String list() {
+		log.info("GET 방식 목록");
+		return "success";
+	}
 }
