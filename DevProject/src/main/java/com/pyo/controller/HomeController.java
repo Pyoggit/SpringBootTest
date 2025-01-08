@@ -37,45 +37,14 @@ public class HomeController {
 		System.out.println("sysout2"+model);
 		return "home";   
 	}
-	@GetMapping(value="/ajaxhome")
-	public String ajaxHome() {
-		return "ajaxhome";
-	}
-	@GetMapping(value="/ajaxhome2")
-	public String ajaxHome2() {
-		return "ajaxhome2";
-	}
-	@GetMapping(value="/ajaxhome3")
-	public String ajaxHome3() {
-		return "ajaxhome3";
-	}
-	@GetMapping(value="/ajaxhome4")
-	public String ajaxHome4() {
-		return "ajaxhome4";
+	
+	
+	@RequestMapping(value="/memberInsert", method= RequestMethod.GET)
+	public String memberInsert() {
+		
+		return "memberInsert";   
 	}
 	
-	@ResponseBody
-	@GetMapping(value="/gohome10")
-	public Map<String, Board> home08() {
-		log.info("컬렉션 Map 타입 home08");
-		Map<String, Board> map = new HashMap<String, Board>();
-		
-		Board board = new Board();
-
-        board.setTitle("제목");
-        board.setContent("내용입니다.");
-        board.setWriter("홍길동");
-        board.setRegDate(new Date());
-        map.put("key1", board);
-        
-        Board board2 = new Board();
-
-        board.setTitle("제목2");
-        board.setContent("내용2입니다.");
-        board.setWriter("홍길동");
-        board.setRegDate(new Date());
-        map.put("key2", board2);
-        
-        return map;
-	}
+	
+	
 }
