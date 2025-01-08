@@ -2,7 +2,9 @@ package com.pyo.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.pyo.domain.Board;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -49,15 +54,28 @@ public class HomeController {
 		return "ajaxhome4";
 	}
 	
-	
-	@GetMapping(value="/gohome01")
-	public String gohome01() {
-		log.info("redirect:/gohome02");
-		return "redirect:/gohome02" ;
-	}
-	@GetMapping(value="/gohome02")
-	public String gohome02() {
-		log.info("/gohome02");
-		return "home";
+	@ResponseBody
+	@GetMapping(value="/gohome10")
+	public Map<String, Board> home08() {
+		log.info("컬렉션 Map 타입 home08");
+		Map<String, Board> map = new HashMap<String, Board>();
+		
+		Board board = new Board();
+
+        board.setTitle("제목");
+        board.setContent("내용입니다.");
+        board.setWriter("홍길동");
+        board.setRegDate(new Date());
+        map.put("key1", board);
+        
+        Board board2 = new Board();
+
+        board.setTitle("제목2");
+        board.setContent("내용2입니다.");
+        board.setWriter("홍길동");
+        board.setRegDate(new Date());
+        map.put("key2", board2);
+        
+        return map;
 	}
 }
