@@ -37,5 +37,18 @@ public class BoardController {
 		ResponseEntity<String> entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		return entity;
 	}
-	
+	@GetMapping(value = "/{boardno}",produces = "application/json")
+	public ResponseEntity<Board> boardGetOne(@PathVariable("boardno") int boardno) {
+		log.info("boardno = " + boardno);
+		Board board = new Board();
+		
+		board.setTitle("제목"); 
+		board.setContent("내용입니다."); 
+		board.setWriter("홍길동"); 
+		board.setRegDate(new Date());
+		
+		ResponseEntity<Board> entity = new ResponseEntity<Board>(board, HttpStatus.OK); 
+		return entity;
+		
+	}
 }

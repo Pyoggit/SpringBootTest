@@ -26,6 +26,10 @@ public class HomeController {
 	}
 	@GetMapping(value="/ajaxhome2")
 	public String ajaxHome2() {
-		return "ajaxhome";
+		return "ajaxhome2";
+	}
+	@GetMapping(value="/ajaxhome3")
+	public String ajaxHome3() {
+		return "ajaxhome3";
 	}
 }
