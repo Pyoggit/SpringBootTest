@@ -14,7 +14,7 @@ import lombok.Builder;
 import lombok.Data;
 // 롬복 애너테이션
 @Data
-@Builder
+
 public class Board {
 private Integer boardNo;
 private String title;
