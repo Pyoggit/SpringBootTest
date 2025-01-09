@@ -1,8 +1,10 @@
 package com.pyo.controller;
 
 import java.io.File;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,15 +33,19 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/registerFileUp01", method = RequestMethod.POST)
-	public String registerFileUp01(MultipartFile picture) throws Exception {
-		log.info("registerFileUp01");
-		log.info("originalName: " + picture.getOriginalFilename());
-		log.info("size: " + picture.getSize());
-		log.info("contentType: " + picture.getContentType());
-		
-		if(!picture.isEmpty()){
-		    String fileName = picture.getOriginalFilename();
-		    picture.transferTo(new File("C:/SpringBootProject/upload_files/"+fileName));
+	public String registerFileUp01(@RequestBody List<MultipartFile> picture) throws Exception {
+		if(!picture.isEmpty()) {
+			for(MultipartFile data : picture) {
+				log.info("registerFileUp01");
+				log.info("originalName: " + data.getOriginalFilename());
+				log.info("size: " + data.getSize());
+				log.info("contentType: " + data.getContentType());
+				if(!data.isEmpty()){
+					String fileName = data.getOriginalFilename();
+					data.transferTo(new File("C:/SpringBootProject/upload_files/"+fileName));
+				}
+				
+			}
 		}
 		
 		return "home";
