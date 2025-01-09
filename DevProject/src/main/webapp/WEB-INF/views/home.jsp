@@ -8,6 +8,8 @@
 </head>
 <body>
 	<h1>Hello 스프링부트</h1>
+	<div>userId: ${member.userId} </div>
+	<div>password: ${member.password} </div>
 
 </body>
 </html>

@@ -5,34 +5,40 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.pyo.domain.Address;
 import com.pyo.domain.FileMember;
 import com.pyo.domain.Member;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RestController
+@Controller
 @RequestMapping("/member")
 public class MemberController {
 
 	@PostMapping(value = "/insert")
-	public String insertMember(Member member, Address address) {
+	public String insertMember(Member member) {
 		log.info("insertMember");
-		log.info("member.getUserId() = " + member.getUserId());
-		log.info("member.getPassword() = " + member.getPassword());
-		log.info("member.getCoin() = " + member.getCoin());
-		log.info("Date dateOfBirth = " + member.getDateOfBirth());
-		log.info("member" + member);
-		log.info("address" + address);
 		return "home";
+	}
+	@PostMapping(value = "/redirect")
+	public String redirecttMember(Member member, RedirectAttributes rttr) {
+		log.info("inserttMember");
+		rttr.addFlashAttribute("member", member);
+		return "redirect:/member/result";
+	}
+	@GetMapping(value = "/result")
+	public String redirectMember() {
+		log.info("insertMember");
+		return "result";
 	}
 
 	@RequestMapping(value = "/registerFileUp01", method = RequestMethod.POST)
