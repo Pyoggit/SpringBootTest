@@ -23,8 +23,8 @@
 			<option value="아이오닉">아이오닉</option>
 		</select><br> 
 		postCode: <input type="text" name="address.postCode" /><br>
-		location: <input type="text" name="address.location" /><br> <input
-			type="submit" value="Memberbeans">
+		location: <input type="text" name="address.location" /><br> 
+		<input type="submit" value="Memberbeans">
 	</form>
 </body>
 </html>
