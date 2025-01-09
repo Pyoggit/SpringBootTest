@@ -10,8 +10,8 @@
 	<h2>파일 업로드 폼 요청처리</h2>
 	<form action="/member/registerFileUp01" method="post"
 		enctype="multipart/form-data">
-		1. <input type="file" name="picture1"> <input type="submit"><br>
-		2. <input type="file" name="picture2"> <input type="submit">
+		1. <input type="file" name="picture" multiple><br>
+		<input type="submit">
 	</form>
 
 </body>
