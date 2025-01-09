@@ -11,7 +11,5 @@ public class Member {
 	private String password;
 	private int coin;
 	private Date dateOfBirth;
-	private ArrayList<String> car;
-	private Address address;
 
 }
