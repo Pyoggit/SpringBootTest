@@ -1,5 +1,6 @@
 package com.pyo.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import lombok.Data;
@@ -10,5 +11,7 @@ public class Member {
 	private String password;
 	private int coin;
 	private Date dateOfBirth;
+	private ArrayList<String> car;
+	private Address address;
 
 }
