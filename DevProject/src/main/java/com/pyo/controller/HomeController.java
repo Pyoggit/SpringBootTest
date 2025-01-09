@@ -45,6 +45,12 @@ public class HomeController {
 		return "memberInsert";   
 	}
 	
+
+	@RequestMapping(value = "/registerFileUpForm", method = RequestMethod.GET) 
+	public String registerFileUpForm() {
+	log.info("registerFileUpForm");
+	return "registerFileUpForm";
+	}
 	
 	
 }
