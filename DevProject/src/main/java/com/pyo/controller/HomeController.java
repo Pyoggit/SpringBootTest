@@ -28,7 +28,6 @@ public class HomeController {
 		model.addAttribute("작업시간", formatedDate);
 
 		logger.info("logger2" + model);
-		System.out.println("sysout2" + model);
 		return "home";
 	}	
 	
