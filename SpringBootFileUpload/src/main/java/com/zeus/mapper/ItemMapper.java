@@ -2,19 +2,22 @@ package com.zeus.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zeus.domain.Item;
 
 public interface ItemMapper {
-	public void create(Item item) throws Exception;
+	List<Item> list() throws Exception;
 
-	public Item read(Integer itemId) throws Exception;
+	List<Item> search(@Param("searchKeyword") String searchKeyword) throws Exception; // search 메서드 정의
 
-	public void update(Item item) throws Exception;
+	void create(Item item) throws Exception;
 
-	public void delete(Integer itemId) throws Exception;
+	Item read(Integer itemId) throws Exception;
 
-	public List<Item> list() throws Exception;
+	void update(Item item) throws Exception;
 
-	public String getPicture(Integer itemId) throws Exception;
+	void delete(Integer itemId) throws Exception;
 
+	String getPicture(Integer itemId) throws Exception;
 }

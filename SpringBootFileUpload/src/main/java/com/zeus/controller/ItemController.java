@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping
+@RequestMapping("/item")
 @MapperScan(basePackages = "com.zeus.mapper")
 public class ItemController {
 
@@ -44,6 +45,14 @@ public class ItemController {
 		List<Item> itemList = this.itemService.list();
 		model.addAttribute("itemList", itemList);
 	}
+	
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String search(@RequestParam("keyword") String keyword, Model model) throws Exception {
+	    List<Item> searchResults = this.itemService.search(keyword);
+	    model.addAttribute("itemList", searchResults);
+	    return "item/list";
+	}
+
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerForm(Model model) {
@@ -57,7 +66,7 @@ public class ItemController {
 		log.info("originalName: " + file.getOriginalFilename());
 		log.info("size: " + file.getSize());
 		log.info("contentType: " + file.getContentType());
-		// uploadFile(String originalName, byte[] fileData) 구조임
+		// uploadFile(String originalName, byte[] fileData) 구조
 		String createdFileName = uploadFile(file.getOriginalFilename(), file.getBytes());
 		item.setPictureUrl(createdFileName);
 		this.itemService.regist(item);
@@ -102,6 +111,7 @@ public class ItemController {
 	}
 
 	private String uploadFile(String originalName, byte[] fileData) throws Exception {
+		//중복 제거하여 파일명 생성
 		UUID uid = UUID.randomUUID();
 		String createdFileName = uid.toString() + "_" + originalName;
 		File target = new File(uploadPath, createdFileName);

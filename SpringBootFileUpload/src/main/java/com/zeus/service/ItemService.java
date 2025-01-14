@@ -5,15 +5,17 @@ import java.util.List;
 import com.zeus.domain.Item;
 
 public interface ItemService {
-	public void regist(Item item) throws Exception;
+	List<Item> list() throws Exception;
 
-	public Item read(Integer itemId) throws Exception;
+	List<Item> search(String keyword) throws Exception;
 
-	public void modify(Item item) throws Exception;
+	void regist(Item item) throws Exception;
 
-	public void remove(Integer itemId) throws Exception;
+	Item read(Integer itemId) throws Exception;
 
-	public List<Item> list() throws Exception;
+	void modify(Item item) throws Exception;
 
-	public String getPicture(Integer itemId) throws Exception;
+	void remove(Integer itemId) throws Exception;
+
+	String getPicture(Integer itemId) throws Exception;
 }
