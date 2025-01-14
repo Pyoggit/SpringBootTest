@@ -7,6 +7,6 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias alias="board" type="com.zeus.domain.Board"/>
+		<package name="com.zeus.domain" />
 	</typeAliases>
 </configuration>

@@ -17,6 +17,7 @@ public class Member {
 	private String userName;
 	private Date regDate;
 	private Date updDate;
+	
 	private List<MemberAuth> authList;
 
 }
