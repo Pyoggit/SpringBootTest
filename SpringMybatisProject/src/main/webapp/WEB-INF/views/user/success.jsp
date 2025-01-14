@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h3>${msg}</h3>
+	<br> <a href="/user/list">List</a>
 </body>
 </html>

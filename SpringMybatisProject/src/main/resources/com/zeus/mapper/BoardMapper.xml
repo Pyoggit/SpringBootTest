@@ -19,7 +19,7 @@
 		)
 	</insert>
 	<!-- _로 구분된 컬럼명을 소문자 낙타표기법의 프로퍼티명으로 자동 매핑한다. -->
-	<select id="read" resultType="board">
+	<select id="read" resultType="Board">
 		SELECT board_no AS boardNo,
 		title,
 		content,
@@ -40,7 +40,7 @@
 		WHERE board_no = #{boardNo}
 	</delete>
 	<!-- _로 구분된 컬럼명을 소문자 낙타표기법의 프로퍼티명으로 자동 매핑한다. -->
-	<select id="list" resultType="board">
+	<select id="list" resultType="Board">
 <![CDATA[
 SELECT board_no,
 title,
