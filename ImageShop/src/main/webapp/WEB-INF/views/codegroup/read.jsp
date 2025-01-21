@@ -2,18 +2,17 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/codegroup.css">
 <title>Image Shop</title>
-<script type="text/javascript" src="/js/test.js"></script>
-<link rel="stylesheet" href="/css/codedetail.css" />
 </head>
 <body>
-	<jsp:include page=".././common/header.jsp" />
-	<jsp:include page=".././common/menu.jsp" />
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/menu.jsp" />
 	<main align="center">
 		<h2>
 			<spring:message code="codegroup.header.read" />
@@ -44,7 +43,7 @@
 			</button>
 		</div>
 	</main>
-	<jsp:include page=".././common/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script>
 		$(document).ready(function() {
 			var formObj = $("#codeGroup");
@@ -64,4 +63,3 @@
 	</script>
 </body>
 </html>
-

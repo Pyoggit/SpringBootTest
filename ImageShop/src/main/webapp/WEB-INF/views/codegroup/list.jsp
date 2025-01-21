@@ -8,19 +8,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/codegroup.css">
 <title>Image Shop</title>
-<script type="text/javascript" src="/js/test.js"></script>
-<link rel="stylesheet" href="/css/codedetail.css" />
 </head>
 <body>
-	<jsp:include page=".././common/header.jsp" />
-	<jsp:include page=".././common/menu.jsp" />
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/menu.jsp" />
 	<main align="center">
 		<h2>
 			<spring:message code="codegroup.header.list" />
 		</h2>
 		<a href="register"><spring:message code="action.new" /></a>
-		<table border="1">
+		<table border="1" class="list_table">
 			<tr>
 				<th align="center" width="160"><spring:message code="codegroup.groupCode" /></th>
 				<th align="center" width="160"><spring:message code="codegroup.groupName" /></th>
@@ -43,14 +43,14 @@
 				</c:otherwise>
 			</c:choose>
 		</table>
-		</main>
-		<jsp:include page=".././common/footer.jsp" />
-		<script>
-			var result = "${msg}";
-			if (result === "SUCCESS") {
-				alert("<spring:message code='common.processSuccess' />");
-			}
-		</script>
+
+	</main>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	<script>
+		var result = "${msg}";
+		if (result === "SUCCESS") {
+			alert("<spring:message code='common.processSuccess' />");
+		}
+	</script>
 </body>
 </html>
-
