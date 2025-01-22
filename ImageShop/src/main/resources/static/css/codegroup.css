@@ -1,11 +1,119 @@
-@charset "UTF-8";
+/* Reset 기본 설정 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-table.input_table{
-	margin: 0 auto;
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
 }
-table.list_table{
-	margin: 0 auto;
+
+a {
+  text-decoration: none;
+  color: #166cea;
+  transition: color 0.3s ease;
 }
-table.read_table{
-	margin: 0 auto;
+
+a:hover {
+  color: #004bbd;
+}
+
+/* Main 섹션 */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* 테이블 스타일 */
+.list_table, .input_table, .read_table {
+  width: 90%;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list_table th, .list_table td,
+.input_table th, .input_table td,
+.read_table th, .read_table td {
+  padding: 0.8rem 1rem;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.list_table th, .input_table th, .read_table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #555;
+}
+
+.list_table tr:nth-child(even),
+.input_table tr:nth-child(even),
+.read_table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.list_table tr:hover,
+.input_table tr:hover,
+.read_table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* 버튼 스타일 */
+button {
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  background-color: #166cea;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #004bbd;
+}
+
+button:active {
+  background-color: #003580;
+}
+
+#btnRegister, #btnModify, #btnEdit, #btnRemove, #btnList {
+  display: inline-block;
+}
+
+#btnRemove {
+  background-color: #e74c3c;
+}
+
+#btnRemove:hover {
+  background-color: #c0392b;
+}
+
+/* 메시지 및 기타 스타일 */
+font[ color="red"] {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.alert {
+  color: #e74c3c;
+  font-size: 1rem;
+  margin-top: 1rem;
 }

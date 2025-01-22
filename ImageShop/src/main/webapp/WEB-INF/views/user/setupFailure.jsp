@@ -15,9 +15,9 @@
 	<main align="center">
 		<div>
 			<h2>
-				<spring:message code="common.joinMemberSuccess" arguments="${userName}" />
+				<spring:message code="common.cannotSetupAdmin" />
 			</h2>
-			<a href="/auth/login"><spring:message code="action.login" /></a>
+			<a href="/"><spring:message code="action.home" /></a>
 		</div>
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />

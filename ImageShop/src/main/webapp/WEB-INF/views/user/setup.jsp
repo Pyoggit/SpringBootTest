@@ -1,45 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="stylesheet" href="/css/codedetail.css" />
+<link rel="stylesheet" href="/css/user.css" />
 <title>Image Shop</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<main align="center">
+	<div class="user_table">
 		<h2>
-			<spring:message code="codedetail.header.register" />
+			<spring:message code="user.header.register" />
 		</h2>
-		<form:form modelAttribute="codeDetail" action="/codedetail/register" method="post">
-			<table class="codedetail_table">
+		<form:form modelAttribute="member" action="setup">
+			<table>
 				<tr>
-					<td><spring:message code="codedetail.groupCode" /></td>
-					<td><form:select path="groupCode" items="${groupCodeList}" itemValue="value" itemLabel="label" /></td>
-					<td><font color="red"><form:errors path="groupCode" /></font></td>
+					<td><spring:message code="user.userId" /></td>
+					<td><form:input path="userId" /></td>
+					<td><font color="red"><form:errors path="userId" /></font></td>
 				</tr>
 				<tr>
-					<td><spring:message code="codedetail.codeValue" /></td>
-					<td><form:input path="codeValue" /></td>
-					<td><font color="red"><form:errors path="codeValue" /></font></td>
+					<td><spring:message code="user.userPw" /></td>
+					<td><form:input path="userPw" /></td>
+					<td><font color="red"><form:errors path="userPw" /></font></td>
 				</tr>
 				<tr>
-					<td><spring:message code="codedetail.codeName" /></td>
-					<td><form:input path="codeName" /></td>
-					<td><font color="red"><form:errors path="codeName" /></font></td>
+					<td><spring:message code="user.userName" /></td>
+					<td><form:input path="userName" /></td>
+					<td><font color="red"><form:errors path="userName" /></font></td>
 				</tr>
 			</table>
 		</form:form>
+	</div>
 		<div>
-			<button type="button" id="btnRegister">
+			<button type="submit" id="btnRegister">
 				<spring:message code="action.register" />
 			</button>
-			<button type="button" id="btnList">
+			<button type="submit" id="btnList">
 				<spring:message code="action.list" />
 			</button>
 		</div>
@@ -47,7 +49,7 @@
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script>
 		$(document).ready(function() {
-			var formObj = $("#codeDetail");
+			var formObj = $("#member");
 			$("#btnRegister").on("click", function() {
 				formObj.submit();
 			});
@@ -56,5 +58,6 @@
 			});
 		});
 	</script>
+
 </body>
 </html>

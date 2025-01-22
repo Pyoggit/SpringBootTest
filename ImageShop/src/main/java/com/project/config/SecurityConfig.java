@@ -36,13 +36,19 @@ public class SecurityConfig {
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		// csrf 토큰 비활성화
 		http.csrf().disable();
-		// URI 패턴으로 접근 제한을 설정한다.
-		http.authorizeRequests().requestMatchers("/board/**").authenticated();
-		http.authorizeRequests().requestMatchers("/manager/**").hasRole("MANAGER");
-		http.authorizeRequests().requestMatchers("/admin/**").hasRole("ADMIN");
-		http.authorizeRequests().anyRequest().permitAll();
+		
+		// CustomLoginSuccessHandler를 로그인 성공 처리자로 지정한다.
+		http.formLogin().loginPage("/auth/login").loginProcessingUrl("/login").successHandler(createAuthenticationSuccessHandler());
 
-		http.formLogin();
+		// 로그아웃을 하면 자동 로그인에 사용하는 쿠키도 삭제한다
+		http.logout().logoutUrl("/auth/logout").invalidateHttpSession(true).deleteCookies("rememberme","JSESSION_ID");
+		
+		// CustomLoginSuccessHandler를 접근 거부자로 지정한다.
+		http.exceptionHandling().accessDeniedHandler(createAccessDeniedHandler());
+		
+		// 데이터 소스를 지정하고 테이블을 이용해서 기존 로그인 정보를 기록
+		// 쿠키의 유효시간(24시간)을 지정한다.
+		http.rememberMe().key("zeus").tokenRepository(createJDBCRepository()).tokenValiditySeconds(60*60*24);
 		return http.build();
 
 	}

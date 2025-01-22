@@ -14,7 +14,6 @@
 </head>
 <body>
 	<jsp:include page=".././common/header.jsp" />
-	<jsp:include page=".././common/menu.jsp" />
 	<main align="center">
 		<h2>
 			<spring:message code="codedetail.header.list" />
