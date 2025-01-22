@@ -8,6 +8,8 @@
 			<td width="80"><a href="/"><spring:message code="header.home" /></a></td>
 			<!-- 로그인을 하지 않은 경우 true -->
 			<sec:authorize access="!isAuthenticated()">
+				<!-- 회원 게시판를 메뉴에 추가한다. -->
+				<td width="120"><a href="/board/list"><spring:message code="menu.board.member" /></a></td>
 			</sec:authorize>
 			<!-- 인증된 사용자인 경우 true -->
 			<sec:authorize access="isAuthenticated()">
@@ -19,9 +21,13 @@
 					<td width="120"><a href="/codedetail/list"><spring:message code="menu.codedetail.list" /></a></td>
 					<!-- 회원 관리를 메뉴에 추가한다. -->
 					<td width="120"><a href="/user/list"><spring:message code="menu.user.admin" /></a></td>
+					<!-- 회원 게시판를 메뉴에 추가한다. -->
+					<td width="120"><a href="/board/list"><spring:message code="menu.board.member" /></a></td>
 				</sec:authorize>
 				<!-- 회원 권한을 가진 사용자인 경우 true -->
 				<sec:authorize access="hasRole('ROLE_MEMBER')">
+					<!-- 회원 게시판를 메뉴에 추가한다. -->
+					<td width="120"><a href="/board/list"><spring:message code="menu.board.member" /></a></td>
 				</sec:authorize>
 			</sec:authorize>
 		</tr>
